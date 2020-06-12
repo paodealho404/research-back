@@ -14,13 +14,13 @@ app.use(
   })
 );
 
-if(ENV === 'production')
-{
-  app.use(express.static(path.join(__dirname,'../front/build')));
-  app.use((req,res)=>{
-    res.sendFile(path.join(__dirname, '../front/build/index.html'));
-  })
-}
+// if(ENV === 'production')
+// {
+//   app.use(express.static(path.join(__dirname,'../front/build')));
+//   app.use((req,res)=>{
+//     res.sendFile(path.join(__dirname, '../front/build/index.html'));
+//   })
+// }
 const Users = require('./routes/Users');
 app.use('/users', Users);
 const Routes = require('./routes/Class');
