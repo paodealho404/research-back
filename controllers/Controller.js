@@ -19,7 +19,7 @@ controllers.createParticipant = (req, res) => {
     technical_level: technical_level
   })
   .then(function(data){
-    res.status(200).json({message: 'Succesfully added a new participant'});
+    res.status(200).json(data);
     return data;
   })
   .catch(error => {
