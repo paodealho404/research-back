@@ -9,14 +9,15 @@ const survey = models.survey;
 controllers.createParticipant = (req, res) => {
   const gender = req.body.gender.toString(); age = req.body.age.toString(), 
   educational_level = req.body.educational_level.toString(),  state = req.body.state.toString(),
-  technical_level = req.body.technical_level.toString() ;
+  technical_level = req.body.technical_level.toString(), favorite_dashboard = req.body.favorite_dashboard;
   // console.log(gender,age,educational_level,state);
   participants.create({
     gender:gender,
     age:age,
     educational_level:educational_level,
     state:state,
-    technical_level: technical_level
+    technical_level: technical_level,
+    favorite_dashboard: favorite_dashboard
   })
   .then(function(data){
     res.status(200).json(data);
