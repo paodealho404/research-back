@@ -92,7 +92,7 @@ controllers.getClassroom = (req, res) => {
 controllers.getCurriculum = (req, res) => {
   const courseId = req.params.courseId;
   const classroomId = req.params.classroomId;
-  model.sequelize.query('SELECT curriculum.name, curriculum.id FROM curriculum JOIN domain_ ON domain_.id = curriculum.domain_id AND curriculum.enabled = true JOIN course_domain_ ON domain_.id = course_domain_.domains_id JOIN course ON course_domain_.Course_id = course.id AND course.id= :courseId JOIN grade ON course.grade_id = grade.id JOIN classroom ON classroom.grade_id = grade.id AND classroom.id = :classroomId;',
+  model.sequelize.query('SELECT curriculum.name, curriculum.id FROM curriculum JOIN domain_ ON domain_.id = curriculum.domain_id AND curriculum.enabled = true JOIN course_domain_ ON domain_.id = course_domain_.domains_id JOIN course ON course_domain_.Course_id = course.id AND course.id= :courseId JOIN grade ON course.grade_id = grade.id JOIN classroom ON classroom.grade_id = grade.id AND classroom.id = :classroomId WHERE curriculum.id = 97 OR curriculum.id = 98 OR curriculum.id = 100 OR curriculum.id = 101;',
   { replacements: { courseId:courseId, classroomId:classroomId },  type: model.sequelize.QueryTypes.SELECT })
   .then(function(data){
     res.json(data);
